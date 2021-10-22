@@ -53,37 +53,6 @@ def genEdge(v,offset):
 
 
 
-img = cv2.imread('test.jpg')
-H = img.shape[0] 
-W = img.shape[1] 
-imgray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-'''
-ret,thresh = cv2.threshold(imgray,127,255,0)
-contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-
-#img = cv2.drawContours(img, contours, -1, (0,255,0), 3)
-print(contours)
-tmp = contours[1][0][0]
-#holeV = contours[2]
-#edge = contours[1]
-contours[1] =  np.concatenate((contours[1],contours[2]))
-new = np.array([tmp])
-print(contours[1])
-
-for i in range(0,len(contours[1])):
-   
-    if ((contours[1][i][0][0] == new[-1][0])) : m = MAX_INT
-    else : m = (contours[1][i][0][1]- new[-1][1]) / (contours[1][i][0][0] - new[-1][0])
-    if (contours[1][(i+1)%len(contours[1])][0][0] == contours[1][i][0][0]) : mm = MAX_INT
-    else : mm = (contours[1][(i+1)%len(contours[1])][0][1]- contours[1][i][0][1]) / (contours[1][(i+1)%len(contours[1])][0][0] - contours[1][i][0][0])
-    if near(new[-1],contours[1][i][0]) or abs(mm-m) < 2   :
-        pass
-    else :
-        
-        m = mm
-        new = np.concatenate((new,[contours[1][i][0]]))
-        tmp = contours[1][i][0]
-'''
 #vertex = [e for e in new]
 
 edge = [[223, 1],[304 ,180],[394, 119],[313 ,305],[219 ,166],[108 ,272],[134, 182],[8 ,190],[13, 131],[180 ,93],[45 ,55]]
